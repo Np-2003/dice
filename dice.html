@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll The Dice</title>
+    <link rel="stylesheet" href="dice.css">
+</head>
+<body>
+    <div id="div1">
+        <ul>
+           <li><img id="image" src='dice1.png' alt="dice1" height="100px" width="100px"></li>     
+           <li><button onclick="roll()" id="btn">Roll</button></li> 
+        </ul>
+    </div>
+    <script>
+        function roll(){
+            let random = Math.floor(Math.random()*6) + 1;
+            let imageurl;
+            switch(random){
+                case 1:
+                    imageurl= "dice1.png" ;
+                    document.getElementById('image').alt="dice1";
+                    break;
+                case 2:
+                    imageurl= "dice2.png";
+                    break;
+                case 3:
+                    imageurl= "dice3.png";
+                    break;
+                case 4:
+                    imageurl= "dice4.png";
+                    break;
+                case 5:
+                    imageurl= "dice5.png";
+                    break;
+                case 6:
+                    imageurl= "dice6.png";
+                    break;
+              default:
+                imageUrl = "dice1.png";
+                break;
+            }
+            
+           document.getElementById('image').src=imageurl;
+        }
+        document.getElementById("btn").addEventListener("click", function() {
+          this.classList.add("clicked");
+          setTimeout(() => {this.classList.remove("clicked");}, 100);});
+    </script>
+</body>    
